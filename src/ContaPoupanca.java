@@ -1,9 +1,9 @@
 public class ContaPoupanca {
 
-    public int agencia;
-    public  int numero;
+    private int agencia;
+    private   int numero;
 
-    public  double saldo;
+    private   double saldo;
 
     public void sacar() {
 
