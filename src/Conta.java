@@ -22,16 +22,24 @@ public abstract class Conta implements IConta {
 
     @Override
     public void sacar(double valor) {
+        saldo = saldo - valor;
 
     }
 
     @Override
     public void depositar(double valor) {
+        saldo = saldo + valor;
 
     }
 
     @Override
-    public void trasferir(double valor, Conta contaDestino) {
+    public void trasferir(double valor, IConta contaDestino) {
+        this.sacar(valor);
+        contaDestino.depositar(valor);
+
+
+
+
 
     }
 
@@ -53,6 +61,11 @@ public abstract class Conta implements IConta {
 
     public double getSaldo() {
         return saldo;
+    }
+    protected void imprimirInfonComuns() {
+        System.out.println(String.format("Agência: %d",this.agencia));
+        System.out.println(String.format("Número: %d",this.numero));
+        System.out.println(String.format("Saldo:%.2f",this.saldo));
     }
 
 }
